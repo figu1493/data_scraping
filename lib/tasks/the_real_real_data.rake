@@ -9,10 +9,10 @@ task :fetch_data => :environment do
 
 	## This should iterate over every clothing item on 
 	## page and print out item name, size, and price
-	doc.css(".SEvntGridBox").each do |item|
-		name = doc.at_css("#ct0").text
-		size = doc.at_css(".SEvntSizeValue").text
-		price = doc.at_css(".SEvntPriceValue").text
+	doc.css(".SEvntGridBoxR").each do |item|
+		name = item.at_css(".SEvntTitle").text
+		size = item.at_css(".SEvntSizeValue").text
+		price = item.at_css(".SEvntPriceValue").text
 		puts "Name: #{name}"
 		puts "Size: #{size}"
 		puts "Price: #{price}"
