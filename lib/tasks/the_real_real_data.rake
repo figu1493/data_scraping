@@ -1,7 +1,6 @@
 desc "Fetch Name, Size, and Price of items"
 task :fetch_data => :environment do
 
-	require 'nokogiri'
 	require 'open-uri'
 
 	url = "http://www.therealreal.com/Event.aspx?l=00012145065700000000&ViewAll=true"
