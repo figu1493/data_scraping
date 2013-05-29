@@ -1,28 +1,33 @@
 class ProductsController < ApplicationController
-  # GET /products
-  # GET /products.json
-  def index
+
+  def home
     @products = Product.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @products }
     end
   end
 
-  # GET /products/1
-  # GET /products/1.json
+  def index
+    %x[rake fetch_data]
+    @products = Product.all
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @products }
+    end
+  end
+
   def show
     @product = Product.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @product }
     end
   end
 
-  # GET /products/new
-  # GET /products/new.json
   def new
     @product = Product.new
 
@@ -32,13 +37,10 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.json
   def create
     @product = Product.new(params[:product])
 
@@ -53,8 +55,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.json
   def update
     @product = Product.find(params[:id])
 
@@ -69,8 +69,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
@@ -79,5 +77,12 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url }
       format.json { head :no_content }
     end
+  end
+
+  def destroy_all
+    Product.destroy_all
+    flash[:notice] = "You have successfully reset the database"
+
+    redirect_to home_path
   end
 end
