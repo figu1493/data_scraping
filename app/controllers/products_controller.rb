@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     @product = Product.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @product }
     end
   end
@@ -81,7 +81,6 @@ class ProductsController < ApplicationController
 
   def destroy_all
     Product.destroy_all
-    flash[:notice] = "You have successfully reset the database"
 
     redirect_to home_path
   end
