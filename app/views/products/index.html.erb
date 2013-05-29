@@ -1,27 +1,31 @@
-<h1>Listing products</h1>
+<h1 class="navbar-inner" style="width:900px; height:50px; padding-top:10px;">Fashion Products</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Size</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.size %></td>
-    <td><%= product.price %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <table style="width:942px;">
+    <tr class="navbar-inner">
+      <th>Name</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<br />
+  <% @products.each do |product| %>
+    <tr class="navbar-inner">
+      <td><%= product.name %></td>
+      <td><%= product.size %></td>
+      <td><%= product.price %></td>
+      <td><%= link_to 'Show', product, class: "btn btn-small btn-primary" %></td>
+      <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-small btn-primary" %></td>
+      <td><%= link_to 'Destroy', product, class: "btn btn-small btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<%= link_to 'New Product', new_product_path %>
+  <div style="width:900px; height:50px; padding-top:10px">
+    <%= link_to 'New Product', new_product_path, class: "btn btn-large btn-primary" %>
+  </div>
+
+

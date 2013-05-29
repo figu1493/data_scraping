@@ -1,6 +1,8 @@
 DataScraping::Application.routes.draw do
   resources :products
 
+  match '/products',    to: 'products#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

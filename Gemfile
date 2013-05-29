@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem "nokogiri", '1.5.9'
-
+gem 'bootstrap-sass', '2.1'
 
 
 # Gems used only for assets and not required
