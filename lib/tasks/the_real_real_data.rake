@@ -3,7 +3,7 @@ task :fetch_data => :environment do
 
 	require 'open-uri'
 
-	url = "http://www.therealreal.com/Event.aspx?l=00012145065700000000&ViewAll=true"
+	url = "http://www.therealreal.com/Event.aspx?l=000119010659&ViewAll=true"
 	doc = Nokogiri::HTML(open(url))
 
 	## This should iterate over every clothing item on 
